@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 
 // Global Color Variables - Change these to update the entire site
 const COLORS = {
