@@ -2,15 +2,49 @@
 
 import { useState, useEffect } from 'react';
 
+const TypingAnimation = ({ text, speed = 50 }: { text: string, speed?: number }) => {
+  const [displayText, setDisplayText] = useState('');
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index < text.length) {
+        setDisplayText(text.slice(0, index + 1));
+        index++;
+      } else {
+        setIsComplete(true);
+        clearInterval(timer);
+      }
+    }, speed);
+
+    return () => clearInterval(timer);
+  }, [text, speed]);
+
+  return (
+    <span 
+      style={{ 
+        fontFamily: '"Courier New", "Monaco", "Menlo", "Ubuntu Mono", monospace',
+        letterSpacing: '0.5px',
+        fontWeight: 'bold'
+      }}
+    >
+      {displayText}
+      {!isComplete && <span className="animate-pulse">|</span>}
+    </span>
+  );
+};
+
 // Global Color Variables - Change these to update the entire site
 const COLORS = {
   primary: '#335e5aff',        // Green for standout elements, buttons, links
   primaryHover: '#027260ff',   // Darker green for hover states
   background: '#eaddfaff',     // Light purple/gray for backgrounds
-  backgroundAlt: '#667673ff',  // Slightly darker background for hover/cards
+  backgroundAlt: '#8ea4a0ff',  // Slightly darker background for hover/cards
   border: '#90c5bcff',         // Border color
   text: '#2D2D2D',          // Main text color
   textMuted: '#250151ff',     // Muted text for descriptions
+  textDescription: '#690069ff' // Description text color
 };
 
 const ColorThemeSlider = ({ onColorChange }: { onColorChange: (hue: number) => void }) => {
@@ -350,7 +384,16 @@ export default function Home() {
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold mb-4">Student Portfolio</h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row justify-center mt-12">
+       
+
+          <p className="text-xl max-w-2xl mx-auto" style={{ color: COLORS.textDescription }}>
+            <TypingAnimation 
+              text="Welcome to my journey as a developer. Explore my projects, read my blog, and get in touch!"
+              speed={45}
+            />
+          </p>
+        </div>
+ <div className="flex gap-4 items-center flex-col sm:flex-row justify-center mt-12">
           <a
             className="border transition-colors flex items-center justify-center font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto text-white rounded-md"
             href="/blog"
@@ -389,12 +432,6 @@ export default function Home() {
             <span style={{ transform: 'skew(15deg)', color: 'inherit', pointerEvents: 'none' }}>View GitHub</span>
           </a>
         </div>
-
-          <p className="text-xl max-w-2xl mx-auto" style={{ color: COLORS.textMuted }}>
-            Welcome to my journey as a developer. Explore my projects, read my blog, and get in touch!
-          </p>
-        </div>
-
         <div id="portfolio">
           <PortfolioSection themeHue={themeHue} />
         </div>
