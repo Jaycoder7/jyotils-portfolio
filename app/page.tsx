@@ -132,7 +132,7 @@ const Header = ({ themeHue }: { themeHue: number }) => {
               GitHub
             </a>
             <a
-              href="/resume.pdf"
+              href="/Resume_Print.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="border transition-all duration-200 flex items-center justify-center font-medium text-sm h-8 px-3 text-white rounded-md group"
@@ -180,7 +180,7 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
     {
       id: 2,
       title: "System Technology Works",
-      description: "Modern e-commerce platform with shopping cart, payment integration, and admin dashboard built using Next.js and Stripe.",
+      description: "Programmed a humanoid robot using Python on Jetson Nano with integrated AI modules for speech, movement, and interactive features. Contributed to robot development that secured a deal with Marvel, with robots featured in the series Ironheart.",
       technologies: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
       githubUrl: "https://github.com/student/ecommerce-site",
       liveUrl: "https://ecommerce-demo.vercel.app"
@@ -188,7 +188,7 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
     {
       id: 3,
       title: "Harvard Mentorship",
-      description: "Interactive weather application with location search, 5-day forecast, and data visualization using weather APIs.",
+      description: "Mentored three undergraduate and graduate teams on market research, financial modeling, and pitch development. Designed workshops to help students refine their presentation skills, supporting one startup that raised $2M in funding.",
       technologies: ["React", "Chart.js", "OpenWeather API", "CSS3"],
       githubUrl: "https://github.com/student/weather-dashboard",
       liveUrl: "https://weather-dashboard-demo.vercel.app"
@@ -196,7 +196,7 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
     {
       id: 4,
       title: "CURO Research",
-      description: "Custom blogging platform with markdown support, comment system, and SEO optimization built with Gatsby.",
+      description: "Awarded research grant to conduct independent market study research. Analyzing market trends and consumer behavior through data-driven research approaches under faculty mentorship.",
       technologies: ["Gatsby", "GraphQL", "Contentful", "Styled Components"],
       githubUrl: "https://github.com/student/blog-platform",
       liveUrl: "https://blog-platform-demo.vercel.app"
