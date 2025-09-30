@@ -39,7 +39,7 @@ const TypingAnimation = ({ text, speed = 50 }: { text: string, speed?: number })
 const COLORS = {
   primary: '#335e5aff',        // Green for standout elements, buttons, links
   primaryHover: '#027260ff',   // Darker green for hover states
-  background: '#eaddfaff',     // Light purple/gray for backgrounds
+  background: '#f9f5ffff',     // Light purple/gray for backgrounds
   backgroundAlt: '#8ea4a0ff',  // Slightly darker background for hover/cards
   border: '#90c5bcff',         // Border color
   text: '#2D2D2D',          // Main text color
@@ -47,50 +47,6 @@ const COLORS = {
   textDescription: '#690069ff' // Description text color
 };
 
-const ColorThemeSlider = ({ onColorChange }: { onColorChange: (hue: number) => void }) => {
-  const [hue, setHue] = useState(220); // Default blue hue
-
-  useEffect(() => {
-    onColorChange(hue);
-  }, [hue, onColorChange]);
-
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newHue = parseInt(e.target.value);
-    setHue(newHue);
-  };
-
-  return (
-    <div className="fixed top-20 right-4 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-black/[.08] dark:border-white/[.145] rounded-lg p-4 shadow-lg">
-      <div className="flex flex-col items-center space-y-3">
-        <label className="text-xs font-medium text-gray-700 dark:text-gray-300">
-          Theme Color
-        </label>
-        <input
-          type="range"
-          min="0"
-          max="360"
-          value={hue}
-          onChange={handleSliderChange}
-          className="w-24 h-2 bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-cyan-500 via-blue-500 via-purple-500 to-red-500 rounded-lg appearance-none cursor-pointer"
-          style={{
-            background: `linear-gradient(to right, 
-              hsl(0, 70%, 50%), 
-              hsl(60, 70%, 50%), 
-              hsl(120, 70%, 50%), 
-              hsl(180, 70%, 50%), 
-              hsl(240, 70%, 50%), 
-              hsl(300, 70%, 50%), 
-              hsl(360, 70%, 50%))`
-          }}
-        />
-        <div 
-          className="w-6 h-6 rounded-full border-2 border-white shadow-md"
-          style={{ backgroundColor: `hsl(${hue}, 70%, 50%)` }}
-        />
-      </div>
-    </div>
-  );
-};
 
 const Header = ({ themeHue }: { themeHue: number }) => {
   return (
@@ -215,15 +171,15 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
   const projects = [
     {
       id: 1,
-      title: "Task Management App",
+      title: "Prioriwise",
       description: "A full-stack web application built with React, Node.js, and MongoDB featuring user authentication, real-time updates, and responsive design.",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io"],
+      technologies: ["React", "Node.js", "MongoDB", "Typescript", "Clerk"],
       githubUrl: "https://github.com/student/task-manager",
       liveUrl: "https://task-manager-demo.vercel.app"
     },
     {
       id: 2,
-      title: "E-commerce Website",
+      title: "System Technology Works",
       description: "Modern e-commerce platform with shopping cart, payment integration, and admin dashboard built using Next.js and Stripe.",
       technologies: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
       githubUrl: "https://github.com/student/ecommerce-site",
@@ -231,7 +187,7 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
     },
     {
       id: 3,
-      title: "Weather Dashboard",
+      title: "Harvard Mentorship",
       description: "Interactive weather application with location search, 5-day forecast, and data visualization using weather APIs.",
       technologies: ["React", "Chart.js", "OpenWeather API", "CSS3"],
       githubUrl: "https://github.com/student/weather-dashboard",
@@ -239,7 +195,7 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
     },
     {
       id: 4,
-      title: "Personal Blog Platform",
+      title: "CURO Research",
       description: "Custom blogging platform with markdown support, comment system, and SEO optimization built with Gatsby.",
       technologies: ["Gatsby", "GraphQL", "Contentful", "Styled Components"],
       githubUrl: "https://github.com/student/blog-platform",
@@ -351,7 +307,13 @@ const ContactSection = ({ themeHue }: { themeHue: number }) => {
       >
         <iframe 
           aria-label='Contact Us' 
-          style={{height:'870px', width:'100%', border:'none', overflow:'hidden'}} 
+          frameBorder="0" 
+          style={{
+            height: '850px', 
+            width: '100%', 
+            border: 'none',
+            backgroundColor: COLORS.background
+          }} 
           src='https://forms.zohopublic.com/jyotilyatin2006gm1/form/ContactUs/formperma/C6IvXrz4nuhTIRNb-q2688tWub107EkCnf6sDaKESHE'
         />
       </div>
@@ -362,15 +324,6 @@ const ContactSection = ({ themeHue }: { themeHue: number }) => {
 export default function Home() {
   const [themeHue, setThemeHue] = useState(220);
 
-  const handleColorChange = (hue: number) => {
-    setThemeHue(hue);
-    // Apply the color theme to CSS custom properties
-    document.documentElement.style.setProperty('--theme-hue', hue.toString());
-    document.documentElement.style.setProperty('--theme-primary', `hsl(${hue}, 70%, 50%)`);
-    document.documentElement.style.setProperty('--theme-primary-light', `hsl(${hue}, 70%, 85%)`);
-    document.documentElement.style.setProperty('--theme-primary-dark', `hsl(${hue}, 70%, 30%)`);
-  };
-
   return (
     <div 
       className="font-sans min-h-screen transition-colors duration-300"
@@ -378,7 +331,6 @@ export default function Home() {
         backgroundColor: COLORS.background,
       }}
     >
-      <ColorThemeSlider onColorChange={handleColorChange} />
       <Header themeHue={themeHue} />
       <main className="max-w-7xl mx-auto px-8 py-20 sm:px-20">
         <div className="text-center mb-16">
