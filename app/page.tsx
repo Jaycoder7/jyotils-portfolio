@@ -172,32 +172,32 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
     {
       id: 1,
       title: "Prioriwise",
-      description: "A full-stack web application built with React, Node.js, and MongoDB featuring user authentication, real-time updates, and responsive design.",
+      description: "Built and deployed an MVP task management application using MongoDB and Google Calendar API integration. Designed key features including outcome-to-task mapping to support women entrepreneurs, and developed the landing page and backend management system.",
       technologies: ["React", "Node.js", "MongoDB", "Typescript", "Clerk"],
       githubUrl: "https://github.com/student/task-manager",
-      liveUrl: "https://task-manager-demo.vercel.app"
+      liveUrl: "https://prioriwise.ai/"
     },
     {
       id: 2,
       title: "System Technology Works",
-      description: "Modern e-commerce platform with shopping cart, payment integration, and admin dashboard built using Next.js and Stripe.",
-      technologies: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
+      description: "Programmed a humanoid robot using Python on Jetson Nano with integrated AI modules for speech, movement, and interactive features. Contributed to robot development that secured a deal with Marvel, with robots featured in the series Ironheart.",
+      technologies: ["Python", "EMACS", "Llama AI"],
       githubUrl: "https://github.com/student/ecommerce-site",
-      liveUrl: "https://ecommerce-demo.vercel.app"
+      liveUrl: "https://www.systemtechnologyworks.com/"
     },
     {
       id: 3,
       title: "Harvard Mentorship",
-      description: "Interactive weather application with location search, 5-day forecast, and data visualization using weather APIs.",
-      technologies: ["React", "Chart.js", "OpenWeather API", "CSS3"],
+      description: "Mentored three undergraduate and graduate teams on market research, financial modeling, and pitch development. Designed workshops to help students refine their presentation skills, supporting one startup that raised $2M in funding.",
+      technologies: ["Leanstack", "Communication", "Leadership"],
       githubUrl: "https://github.com/student/weather-dashboard",
       liveUrl: "https://weather-dashboard-demo.vercel.app"
     },
     {
       id: 4,
       title: "CURO Research",
-      description: "Custom blogging platform with markdown support, comment system, and SEO optimization built with Gatsby.",
-      technologies: ["Gatsby", "GraphQL", "Contentful", "Styled Components"],
+      description: "Awarded research grant to conduct independent market study research. Analyzing market trends and consumer behavior through data-driven research approaches under faculty mentorship.",
+      technologies: ["Market Research"],
       githubUrl: "https://github.com/student/blog-platform",
       liveUrl: "https://blog-platform-demo.vercel.app"
     }
@@ -261,26 +261,19 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
               </div>
             </div>
             
-            <div className="flex gap-3">
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium hover:underline hover:underline-offset-4 transition-colors duration-200"
-                style={{ color: COLORS.primary }}
-              >
-                GitHub →
-              </a>
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium hover:underline hover:underline-offset-4 transition-colors duration-200"
-                style={{ color: COLORS.primary }}
-              >
-                Live Demo →
-              </a>
-            </div>
+            {(project.id === 1 || project.id === 2) && (
+              <div className="flex gap-3">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium hover:underline hover:underline-offset-4 transition-colors duration-200"
+                  style={{ color: COLORS.primary }}
+                >
+                  Check them out →
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -294,7 +287,7 @@ const ContactSection = ({ themeHue }: { themeHue: number }) => {
       <div className="text-center sm:text-left mb-8">
         <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
         <p className="text-lg" style={{ color: COLORS.textMuted }}>
-          Let's connect and discuss opportunities, projects, or just chat about tech!
+          Let's connect and discuss opportunities, projects, or what I should add on here next!
         </p>
       </div>
       
