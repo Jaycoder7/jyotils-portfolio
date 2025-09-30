@@ -172,7 +172,7 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
     {
       id: 1,
       title: "Prioriwise",
-      description: "A full-stack web application built with React, Node.js, and MongoDB featuring user authentication, real-time updates, and responsive design.",
+      description: "Built and deployed an MVP task management application using MongoDB and Google Calendar API integration. Designed key features including outcome-to-task mapping to support women entrepreneurs, and developed the landing page and backend management system.",
       technologies: ["React", "Node.js", "MongoDB", "Typescript", "Clerk"],
       githubUrl: "https://github.com/student/task-manager",
       liveUrl: "https://task-manager-demo.vercel.app"
@@ -180,7 +180,7 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
     {
       id: 2,
       title: "System Technology Works",
-      description: "Modern e-commerce platform with shopping cart, payment integration, and admin dashboard built using Next.js and Stripe.",
+      description: "Programmed a humanoid robot using Python on Jetson Nano with integrated AI modules for speech, movement, and interactive features. Contributed to robot development that secured a deal with Marvel, with robots featured in the series Ironheart.",
       technologies: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
       githubUrl: "https://github.com/student/ecommerce-site",
       liveUrl: "https://ecommerce-demo.vercel.app"
@@ -188,7 +188,7 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
     {
       id: 3,
       title: "Harvard Mentorship",
-      description: "Interactive weather application with location search, 5-day forecast, and data visualization using weather APIs.",
+      description: "Mentored three undergraduate and graduate teams on market research, financial modeling, and pitch development. Designed workshops to help students refine their presentation skills, supporting one startup that raised $2M in funding.",
       technologies: ["React", "Chart.js", "OpenWeather API", "CSS3"],
       githubUrl: "https://github.com/student/weather-dashboard",
       liveUrl: "https://weather-dashboard-demo.vercel.app"
@@ -196,7 +196,7 @@ const PortfolioSection = ({ themeHue }: { themeHue: number }) => {
     {
       id: 4,
       title: "CURO Research",
-      description: "Custom blogging platform with markdown support, comment system, and SEO optimization built with Gatsby.",
+      description: "Awarded research grant to conduct independent market study research. Analyzing market trends and consumer behavior through data-driven research approaches under faculty mentorship.",
       technologies: ["Gatsby", "GraphQL", "Contentful", "Styled Components"],
       githubUrl: "https://github.com/student/blog-platform",
       liveUrl: "https://blog-platform-demo.vercel.app"
