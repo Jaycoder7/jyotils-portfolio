@@ -65,7 +65,16 @@ const DARK_COLORS = {
 const ProjectsSection = () => {
   const { theme } = useTheme();
   const COLORS = theme === 'light' ? LIGHT_COLORS : DARK_COLORS;
-  const projects: any[] = []; // Empty for now - add personal projects here
+  const projects = [
+    {
+      id: 1,
+      title: "Forage Midas - Financial Analysis Platform",
+      description: "In-progress financial analysis and data visualization platform built as part of a virtual internship program. Developing features for financial data processing, market analysis, and interactive dashboards.",
+      technologies: ["Java", "Apache Kafka", "Data Processing", "Financial APIs"],
+      status: "In Progress",
+      liveUrl: "https://github.com/Jaycoder7/forage-midas"
+    }
+  ];
 
   if (projects.length === 0) {
     return (
@@ -122,7 +131,20 @@ const ProjectsSection = () => {
               e.currentTarget.style.transform = 'translateY(0px)';
             }}
           >
-            <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+            <div className="flex justify-between items-start mb-3">
+              <h3 className="text-xl font-semibold">{project.title}</h3>
+              {project.status && (
+                <span 
+                  className="px-2 py-1 rounded text-xs font-medium"
+                  style={{
+                    backgroundColor: project.status === 'In Progress' ? '#fbbf24' : COLORS.primary,
+                    color: 'white'
+                  }}
+                >
+                  {project.status}
+                </span>
+              )}
+            </div>
             <p 
               className="mb-4 leading-relaxed" 
               style={{ 
@@ -177,7 +199,7 @@ const ProfessionalExperienceSection = () => {
       id: 1,
       title: "Full Stack Developer",
       company: "Prioriwise",
-      period: "2024",
+      period: "June 2024 - Present",
       description: "Built and deployed an MVP task management application using MongoDB and Google Calendar API integration. Designed key features including outcome-to-task mapping to support women entrepreneurs, and developed the landing page and backend management system.",
       technologies: ["React", "Node.js", "MongoDB", "TypeScript", "Clerk"],
       link: "https://prioriwise.ai/"
@@ -186,10 +208,19 @@ const ProfessionalExperienceSection = () => {
       id: 2,
       title: "Software Engineering Intern",
       company: "System Technology Works",
-      period: "Summer 2024",
+      period: "Jan 2024-May 2024",
       description: "Programmed a humanoid robot using Python on Jetson Nano with integrated AI modules for speech, movement, and interactive features. Contributed to robot development that secured a deal with Marvel, with robots featured in the series Ironheart.",
       technologies: ["Python", "EMACS", "Llama AI", "Jetson Nano"],
       link: "https://www.systemtechnologyworks.com/"
+    },
+    {
+      id: 3,
+      title: "Website Design & Marketing Intern",
+      company: "The Entrepreneurial Hour",
+      period: "Mar 2023-Dec 2023",
+      description: "Led website design and creation for volunteer business leader organization providing entrepreneurial advice. Managed weekly presenter outreach and coordination, designed LinkedIn promotional posts for presentations. Contributing to digital presence of organization that connects business mentors with entrepreneurs at no cost.",
+      technologies: ["Web Design", "LinkedIn Marketing", "Presenter Coordination", "Digital Strategy", "Graphic Design"],
+      link: "https://theentrepreneurialhour.com/"
     }
   ];
 
@@ -284,6 +315,15 @@ const ResearchSection = () => {
       period: "2024-2025",
       description: "Awarded competitive research grant to conduct independent market study research. Analyzing market trends and consumer behavior through data-driven research approaches under faculty mentorship.",
       focus: ["Market Research", "Data Analysis", "Consumer Behavior"]
+    },
+    {
+      id: 2,
+      title: "AP Research: Electric Vehicle Environmental Impact Study",
+      institution: "High School AP Research Program",
+      period: "2022-2023",
+      description: "Conducted primary research surveying 13 Georgia EV owners to compare their environmental perceptions with empirical carbon emission data. Calculated that EVs in Georgia produce significantly less CO2 (highest: 19.5 kg/month) compared to gasoline vehicles (383.33 kg/month). Used statistical analysis to examine the gap between owner beliefs and actual environmental impact, finding that all respondents correctly believed EVs are environmentally superior to gas vehicles in Georgia's energy context.",
+      focus: ["Primary Research", "Statistical Analysis", "Carbon Footprint Calculation", "Survey Methodology", "Georgia Energy Grid", "Environmental Policy"],
+      link: "/Research_EV.pdf"
     }
   ];
 
@@ -329,7 +369,7 @@ const ResearchSection = () => {
               {item.description}
             </p>
             
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 mb-4">
               {item.focus.map((area) => (
                 <span
                   key={area}
@@ -344,6 +384,20 @@ const ResearchSection = () => {
                 </span>
               ))}
             </div>
+            
+            {item.link && (
+              <div className="flex gap-3">
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium hover:underline hover:underline-offset-4 transition-colors duration-200"
+                  style={{ color: COLORS.primary }}
+                >
+                  View Research Paper →
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -363,6 +417,25 @@ const VolunteeringSection = () => {
       description: "Mentored three undergraduate and graduate teams on market research, financial modeling, and pitch development. Designed workshops to help students refine their presentation skills, supporting one startup that raised $2M in funding.",
       impact: "Helped 1 startup raise $2M in funding",
       skills: ["Mentorship", "Financial Modeling", "Pitch Development", "Workshop Design"]
+    },
+    {
+      id: 2,
+      title: "Leadership Member",
+      organization: "RAJA - Rajasthani Association of Georgia",
+      period: "2024-Present",
+      description: "Active leadership member contributing to community events, cultural preservation, and networking activities for the Rajasthani community in Georgia.",
+      impact: "Supporting cultural heritage and community engagement",
+      skills: ["Event Planning", "Community Engagement", "Cultural Leadership", "Networking"]
+    },
+    {
+      id: 3,
+      title: "Youth Group Founder & Lead",
+      organization: "Agrasen Bhawan",
+      period: "2024-Present",
+      description: "Founded and lead the youth group while spearheading the complete website development for the organization. Managing digital presence and youth engagement initiatives for the community.",
+      impact: "Established youth leadership and modernized digital infrastructure",
+      skills: ["Web Development", "Youth Leadership", "Digital Strategy", "Community Building"],
+      link: "https://www.agrasenbhawanusa.org/"
     }
   ];
 
@@ -414,7 +487,7 @@ const VolunteeringSection = () => {
               </p>
             </div>
             
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 mb-4">
               {item.skills.map((skill) => (
                 <span
                   key={skill}
@@ -429,6 +502,20 @@ const VolunteeringSection = () => {
                 </span>
               ))}
             </div>
+            
+            {item.link && (
+              <div className="flex gap-3">
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium hover:underline hover:underline-offset-4 transition-colors duration-200"
+                  style={{ color: COLORS.primary }}
+                >
+                  Visit Website →
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>
