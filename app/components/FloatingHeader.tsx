@@ -56,6 +56,7 @@ const ThemeToggleButton = () => {
 export const FloatingHeader: React.FC = () => {
   const { theme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const colors = theme === 'light' ? LIGHT_COLORS : DARK_COLORS;
 
   useEffect(() => {
@@ -98,15 +99,15 @@ export const FloatingHeader: React.FC = () => {
             </a>
           </div>
           
-          <nav className="hidden md:flex space-x-3">
-            <a 
-              href="#experience" 
-              className="text-sm font-medium transition-all duration-300 border px-2 py-1 rounded-md hover:scale-105"
+          <nav className="flex items-center space-x-4">
+            {/* Blog Link - Always visible */}
+            <a
+              href="/blog"
+              className="text-sm font-medium border px-3 py-1 rounded-md hover:scale-105 transition-all duration-300"
               style={{
                 backgroundColor: colors.background,
                 borderColor: colors.primary,
                 color: colors.primary,
-                transform: 'skew(-10deg)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = colors.backgroundAlt;
@@ -115,80 +116,135 @@ export const FloatingHeader: React.FC = () => {
                 e.currentTarget.style.backgroundColor = colors.background;
               }}
             >
-              <span style={{ transform: 'skew(10deg)', color: 'inherit', pointerEvents: 'none' }}>Experience</span>
+              Blog
             </a>
-            <a 
-              href="#projects" 
-              className="text-sm font-medium transition-all duration-300 border px-2 py-1 rounded-md hover:scale-105"
-              style={{
-                backgroundColor: colors.background,
-                borderColor: colors.primary,
-                color: colors.primary,
-                transform: 'skew(-10deg)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = colors.backgroundAlt;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = colors.background;
-              }}
-            >
-              <span style={{ transform: 'skew(10deg)', color: 'inherit', pointerEvents: 'none' }}>Projects</span>
-            </a>
-            <a 
-              href="#research" 
-              className="text-sm font-medium transition-all duration-300 border px-2 py-1 rounded-md hover:scale-105"
-              style={{
-                backgroundColor: colors.background,
-                borderColor: colors.primary,
-                color: colors.primary,
-                transform: 'skew(-10deg)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = colors.backgroundAlt;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = colors.background;
-              }}
-            >
-              <span style={{ transform: 'skew(10deg)', color: 'inherit', pointerEvents: 'none' }}>Research</span>
-            </a>
-            <a 
-              href="#volunteering" 
-              className="text-sm font-medium transition-all duration-300 border px-2 py-1 rounded-md hover:scale-105"
-              style={{
-                backgroundColor: colors.background,
-                borderColor: colors.primary,
-                color: colors.primary,
-                transform: 'skew(-10deg)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = colors.backgroundAlt;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = colors.background;
-              }}
-            >
-              <span style={{ transform: 'skew(10deg)', color: 'inherit', pointerEvents: 'none' }}>Leadership</span>
-            </a>
-            <a 
-              href="#contact" 
-              className="text-sm font-medium transition-all duration-300 border px-2 py-1 rounded-md hover:scale-105"
-              style={{
-                backgroundColor: colors.background,
-                borderColor: colors.primary,
-                color: colors.primary,
-                transform: 'skew(-10deg)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = colors.backgroundAlt;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = colors.background;
-              }}
-            >
-              <span style={{ transform: 'skew(10deg)', color: 'inherit', pointerEvents: 'none' }}>Contact</span>
-            </a>
+            
+            {/* Navigation Menu Button */}
+            <div className="relative">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="flex items-center space-x-1 text-sm font-medium border px-3 py-1 rounded-md hover:scale-105 transition-all duration-300"
+                style={{
+                  backgroundColor: colors.background,
+                  borderColor: colors.primary,
+                  color: colors.primary,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = colors.backgroundAlt;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = colors.background;
+                }}
+              >
+                <span>Menu</span>
+                <svg 
+                  className={`w-4 h-4 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {/* Dropdown Menu */}
+              {isMenuOpen && (
+                <div 
+                  className="absolute right-0 mt-2 w-48 border rounded-lg shadow-lg z-50"
+                  style={{
+                    backgroundColor: colors.background,
+                    borderColor: colors.border,
+                  }}
+                >
+                  <div className="py-2">
+                    <a
+                      href="#experience"
+                      className="block px-4 py-2 text-sm transition-colors duration-200"
+                      style={{ color: colors.text }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = colors.backgroundAlt;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Experience
+                    </a>
+                    <a
+                      href="#projects"
+                      className="block px-4 py-2 text-sm transition-colors duration-200"
+                      style={{ color: colors.text }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = colors.backgroundAlt;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Projects
+                    </a>
+                    <a
+                      href="#research"
+                      className="block px-4 py-2 text-sm transition-colors duration-200"
+                      style={{ color: colors.text }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = colors.backgroundAlt;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Research
+                    </a>
+                    <a
+                      href="#volunteering"
+                      className="block px-4 py-2 text-sm transition-colors duration-200"
+                      style={{ color: colors.text }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = colors.backgroundAlt;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Leadership
+                    </a>
+                    <a
+                      href="#photography"
+                      className="block px-4 py-2 text-sm transition-colors duration-200"
+                      style={{ color: colors.text }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = colors.backgroundAlt;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Photography
+                    </a>
+                    <a
+                      href="#contact"
+                      className="block px-4 py-2 text-sm transition-colors duration-200"
+                      style={{ color: colors.text }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = colors.backgroundAlt;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Contact
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
           
           <div className="flex items-center space-x-4">

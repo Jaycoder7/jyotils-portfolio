@@ -73,6 +73,30 @@ const ProjectsSection = () => {
       technologies: ["Java", "Apache Kafka", "Data Processing", "Financial APIs"],
       status: "In Progress",
       liveUrl: "https://github.com/Jaycoder7/forage-midas"
+    },
+    {
+      id: 2,
+      title: "BullDawg Boundaries - UGA Campus Explorer",
+      description: "Gamified campus exploration app with Daily 360° Challenges for UGA students. Built with React.js, Three.js for 360° image rendering, MapTiler for interactive mapping, and Supabase backend. Features leaderboards, location-based storytelling with Gemini AI, and community building through shared campus experiences.",
+      technologies: ["React.js", "Vite.js", "Three.js", "Node.js", "Supabase", "MapTiler API", "Gemini AI", "Polycam"],
+      status: "Completed",
+      liveUrl: "https://github.com/Jaycoder7/uga-campus-explorer"
+    },
+    {
+      id: 3,
+      title: "Sun Tracking Solar Panel System",
+      description: "Engineered an automated solar panel tracking system using FRC components that follows the sun's movement throughout the day. Successfully improved solar panel efficiency from 7% to 11% (net gain after accounting for system power consumption), demonstrating measurable performance optimization through precision tracking algorithms.",
+      technologies: ["FRC Components", "C++", "Solar Tracking", "Efficiency Optimization", "Power Management"],
+      status: "Completed",
+      liveUrl: "#"
+    },
+    {
+      id: 4,
+      title: "Electric Go-Kart Conversion Project",
+      description: "Led the gas-to-electric conversion of a broken go-kart in a team project. While teammates handled chassis repairs and mechanical fixes, I focused on the electrical conversion including electric motor integration, electric brake system implementation, and rear ultrasonic sensor installation for enhanced safety and performance.",
+      technologies: ["Electric Motor Conversion", "Electric Brake Systems", "Ultrasonic Sensors", "Power Systems", "Team Collaboration"],
+      status: "Completed",
+      liveUrl: "#"
     }
   ];
 
@@ -312,7 +336,7 @@ const ResearchSection = () => {
       id: 1,
       title: "CURO Research Grant",
       institution: "University of Georgia",
-      period: "2024-2025",
+      period: "2025-Present",
       description: "Awarded competitive research grant to conduct independent market study research. Analyzing market trends and consumer behavior through data-driven research approaches under faculty mentorship.",
       focus: ["Market Research", "Data Analysis", "Consumer Behavior"]
     },
@@ -412,8 +436,8 @@ const VolunteeringSection = () => {
     {
       id: 1,
       title: "Student Mentor",
-      organization: "Harvard Innovation Labs",
-      period: "2024",
+      organization: "Harvard Extenion School",
+      period: "June 2023 - August 2025",
       description: "Mentored three undergraduate and graduate teams on market research, financial modeling, and pitch development. Designed workshops to help students refine their presentation skills, supporting one startup that raised $2M in funding.",
       impact: "Helped 1 startup raise $2M in funding",
       skills: ["Mentorship", "Financial Modeling", "Pitch Development", "Workshop Design"]
@@ -431,7 +455,7 @@ const VolunteeringSection = () => {
       id: 3,
       title: "Youth Group Founder & Lead",
       organization: "Agrasen Bhawan",
-      period: "2024-Present",
+      period: "January 2026-Present",
       description: "Founded and lead the youth group while spearheading the complete website development for the organization. Managing digital presence and youth engagement initiatives for the community.",
       impact: "Established youth leadership and modernized digital infrastructure",
       skills: ["Web Development", "Youth Leadership", "Digital Strategy", "Community Building"],
@@ -516,6 +540,80 @@ const VolunteeringSection = () => {
                 </a>
               </div>
             )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const PhotographySection = () => {
+  const { theme } = useTheme();
+  const COLORS = theme === 'light' ? LIGHT_COLORS : DARK_COLORS;
+  
+  // Add your photos here - put them in the public folder and reference them like "/photos/photo1.jpg"
+  const photos: { id: number; src: string; alt: string; }[] = [
+    // Example photos - replace with your actual photo paths
+    // { id: 1, src: "/photos/photo1.jpg", alt: "Description of photo 1" },
+    // { id: 2, src: "/photos/photo2.jpg", alt: "Description of photo 2" },
+    // { id: 3, src: "/photos/photo3.jpg", alt: "Description of photo 3" },
+  ];
+
+  if (photos.length === 0) {
+    return (
+      <section className="w-full max-w-6xl mx-auto mb-16">
+        <div className="text-center sm:text-left mb-8">
+          <h2 className="text-3xl font-bold mb-4">Photography</h2>
+          <p className="text-lg" style={{ color: COLORS.textMuted }}>
+            A collection of my photography work
+          </p>
+        </div>
+        
+        <div 
+          className="border rounded-lg p-8 text-center"
+          style={{
+            borderColor: COLORS.border,
+            backgroundColor: COLORS.background,
+          }}
+        >
+          <p 
+            className="text-lg"
+            style={{ color: COLORS.textMuted }}
+          >
+            Photography collection coming soon! Currently curating my best shots.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="w-full max-w-6xl mx-auto mb-16">
+      <div className="text-center sm:text-left mb-8">
+        <h2 className="text-3xl font-bold mb-4">Photography</h2>
+        <p className="text-lg" style={{ color: COLORS.textMuted }}>
+          A collection of my photography work
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {photos.map((photo) => (
+          <div
+            key={photo.id}
+            className="group overflow-hidden rounded-lg border transition-all duration-300 hover:shadow-lg"
+            style={{
+              borderColor: COLORS.border,
+              backgroundColor: COLORS.background,
+            }}
+          >
+            <div className="aspect-square overflow-hidden">
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
           </div>
         ))}
       </div>
@@ -663,6 +761,10 @@ export default function Home() {
 
         <div id="volunteering">
           <VolunteeringSection />
+        </div>
+
+        <div id="photography">
+          <PhotographySection />
         </div>
 
         <div id="contact">
