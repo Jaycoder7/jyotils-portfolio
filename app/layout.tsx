@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jyotil Agrawal - Portfolio",
-  description: "Student Portfolio showcasing projects and technical skills",
+  title: "Jyotil Agrawal | Engineering & Photography",
+  description: "Choose a perspective: explore Jyotil Agrawal’s engineering work or visual photography archive.",
 };
 
 export default function RootLayout({
