@@ -24,13 +24,12 @@ const experiences = [
 
 const projects = [
   { number: '01', title: 'BullDawg Boundaries', eyebrow: 'Campus exploration, reimagined', description: 'A gamified UGA campus explorer with daily 360° challenges, interactive mapping, leaderboards, and AI-powered location stories.', tags: ['React', 'Three.js', 'Supabase', 'Gemini AI'], href: 'https://github.com/Jaycoder7/uga-campus-explorer', accent: 'cyan' },
-  { number: '02', title: 'Forage Midas', eyebrow: 'Financial signals, clarified', description: 'An in-progress analysis platform for processing market data and transforming financial signals into useful visual insights.', tags: ['Java', 'Kafka', 'Financial APIs'], href: 'https://github.com/Jaycoder7/forage-midas', accent: 'gold' },
-  { number: '03', title: 'Sun Tracking System', eyebrow: 'Hardware that follows the light', description: 'An automated FRC-based solar tracking system that improved measured panel efficiency from 7% to 11% after system power costs.', tags: ['C++', 'FRC', 'Power Systems'], href: '#contact', accent: 'ember' },
-  { number: '04', title: 'Electric Go-Kart', eyebrow: 'A mechanical rebuild, electrified', description: 'A team conversion of a broken gas go-kart, including motor integration, electric braking, and rear ultrasonic safety sensing.', tags: ['EV Systems', 'Sensors', 'Team Build'], href: '#contact', accent: 'violet' },
+  { number: '02', title: 'Sun Tracking System', eyebrow: 'Hardware that follows the light', description: 'An automated FRC-based solar tracking system that improved measured panel efficiency from 7% to 11% after system power costs.', tags: ['C++', 'FRC', 'Power Systems'], href: '#contact', accent: 'ember' },
+  { number: '03', title: 'Electric Go-Kart', eyebrow: 'A mechanical rebuild, electrified', description: 'A team conversion of a broken gas go-kart, including motor integration, electric braking, and rear ultrasonic safety sensing.', tags: ['EV Systems', 'Sensors', 'Team Build'], href: '#contact', accent: 'violet' },
 ];
 
 const research = [
-  { year: '2025 - PRESENT', title: 'CURO Research Grant', place: 'University of Georgia', description: 'Competitive independent research grant focused on market trends and consumer behavior through data-driven analysis and faculty mentorship.', tags: ['Market Research', 'Data Analysis', 'Consumer Behavior'] },
+  { year: '2025 - MAY 2026', title: 'CURO Research Grant', place: 'University of Georgia', description: 'Competitive independent research grant focused on market trends and consumer behavior through data-driven analysis and faculty mentorship.', tags: ['Market Research', 'Data Analysis', 'Consumer Behavior'] },
   { year: '2022 - 2023', title: 'Electric Vehicle Environmental Impact', place: 'AP Research', description: 'Primary research comparing Georgia EV-owner perceptions with empirical emissions data, including survey design, carbon calculations, and statistical analysis.', tags: ['Primary Research', 'Statistics', 'Climate Tech'], href: '/Research_EV.pdf' },
 ];
 
@@ -48,7 +47,7 @@ export default function Home() {
           <div className="hero-copy">
             <div className="status-pill"><span /> Available for ambitious builds</div>
             <p className="hero-kicker">Developer · Researcher · Builder</p>
-            <h1>I turn curious ideas into<span className="gradient-text"> things people can use.</span></h1>
+            <h1>Build software,<span className="gradient-text"> mess with hardware.</span></h1>
             <p className="hero-description">I’m Jyotil Agrawal, a Computer Engineering student at Georgia Tech building at the intersection of software, robotics, research, and entrepreneurship.</p>
             <div className="hero-actions">
               <a href="#projects" className="button button-primary">Explore my work <ArrowIcon /></a>
