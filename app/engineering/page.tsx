@@ -33,6 +33,8 @@ const research = [
   { year: '2022 - 2023', title: 'Electric Vehicle Environmental Impact', place: 'AP Research', description: 'Primary research comparing Georgia EV-owner perceptions with empirical emissions data, including survey design, carbon calculations, and statistical analysis.', tags: ['Primary Research', 'Statistics', 'Climate Tech'], href: '/Research_EV.pdf' },
 ];
 
+const marqueeItems = ['FULL-STACK DEVELOPMENT', 'ROBOTICS', 'DATA + RESEARCH', 'PRODUCT THINKING'];
+
 function SectionHeading({ index, title, copy }: { index: string; title: string; copy: string }) {
   return <div className="section-heading"><span className="section-index">{index}</span><div><h2>{title}</h2><p>{copy}</p></div></div>;
 }
@@ -57,8 +59,9 @@ export default function Home() {
         </section>
 
         <div className="marquee" aria-hidden="true"><div className="marquee-track">
-          <span>FULL-STACK DEVELOPMENT</span><i /><span>ROBOTICS</span><i /><span>DATA + RESEARCH</span><i /><span>PRODUCT THINKING</span><i />
-          <span>FULL-STACK DEVELOPMENT</span><i /><span>ROBOTICS</span><i /><span>DATA + RESEARCH</span><i /><span>PRODUCT THINKING</span><i />
+          {Array.from({ length: 4 }, (_, loop) => marqueeItems.map((item) => (
+            <span className="marquee-item" key={`${loop}-${item}`}>{item}<i /></span>
+          )))}
         </div></div>
 
         <section className="content-section" id="projects">
