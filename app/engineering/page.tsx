@@ -17,6 +17,7 @@ const GithubIcon = ({ className = '' }: LinkIconProps) => (
 );
 
 const experiences = [
+  { period: 'CURRENT', role: 'AwareSite Research', company: 'RICAL', description: 'Training machine learning models for AwareSite to recognize complex motion patterns through cycles of simpler movements. Research focuses on the challenge of relating these motion cycles to higher-level activity patterns.', tags: ['Machine Learning', 'Motion Recognition', 'Engineering Research'], link: undefined },
   { period: 'JUN 2024 - MAY 2026', role: 'Full Stack Developer', company: 'Prioriwise', description: 'Built an MVP task-management platform that turns outcomes into focused, calendar-aware action plans for women entrepreneurs.', tags: ['React', 'Node.js', 'MongoDB', 'TypeScript', 'Clerk'], link: 'https://prioriwise.ai/' },
   { period: 'JAN - MAY 2024', role: 'Software Engineering Intern', company: 'System Technology Works', description: 'Programmed an AI-powered humanoid robot on Jetson Nano, integrating speech, movement, and interactive behavior for a production featured in Marvel’s Ironheart.', tags: ['Python', 'AI', 'Jetson Nano', 'Robotics'], link: 'https://www.systemtechnologyworks.com/' },
   { period: 'MAR - DEC 2023', role: 'Website Design & Marketing Intern', company: 'The Entrepreneurial Hour', description: 'Led web design and digital promotion for a volunteer organization connecting business mentors with entrepreneurs at no cost.', tags: ['Web Design', 'Digital Strategy', 'Marketing'], link: 'https://theentrepreneurialhour.com/' },
@@ -78,15 +79,16 @@ export default function Home() {
 
         <section className="content-section" id="experience">
           <SectionHeading index="02" title="Experience" copy="Learning by shipping, collaborating, and solving real constraints." />
-          <div className="experience-list">{experiences.map((item) => (
-            <a key={item.company} href={item.link} target="_blank" rel="noreferrer" className="experience-row">
+          <div className="experience-list">{experiences.map((item) => {
+            const content = <>
               <span className="experience-period">{item.period}</span>
               <div className="experience-title"><h3>{item.role}</h3><p>{item.company}</p></div>
               <p className="experience-description">{item.description}</p>
               <div className="tag-row compact">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-              <ArrowIcon className="experience-arrow" />
-            </a>
-          ))}</div>
+              {item.link && <ArrowIcon className="experience-arrow" />}
+            </>;
+            return item.link ? <a key={item.company} href={item.link} target="_blank" rel="noreferrer" className="experience-row">{content}</a> : <article key={item.company} className="experience-row">{content}</article>;
+          })}</div>
         </section>
 
         <section className="content-section research-section" id="research">
