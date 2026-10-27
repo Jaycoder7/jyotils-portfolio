@@ -17,7 +17,7 @@ const GithubIcon = ({ className = '' }: LinkIconProps) => (
 );
 
 const experiences = [
-  { period: 'CURRENT', role: 'AwareSite Research', company: 'RICAL', description: 'Training machine learning models for AwareSite to recognize complex motion patterns through cycles of simpler movements. Research focuses on the challenge of relating these motion cycles to higher-level activity patterns.', tags: ['Machine Learning', 'Motion Recognition', 'Engineering Research'], link: undefined },
+  { period: 'CURRENT', role: 'AwareSite Research', company: 'RICAL', description: 'Training machine learning models for AwareSite to recognize complex motion patterns through cycles of simpler movements. Research focuses on the challenge of relating these motion cycles to higher-level activity patterns.', tags: ['Machine Learning', 'Motion Recognition', 'Engineering Research'], link: 'https://rical.ce.gatech.edu/' },
   { period: 'JUN 2024 - MAY 2026', role: 'Full Stack Developer', company: 'Prioriwise', description: 'Built an MVP task-management platform that turns outcomes into focused, calendar-aware action plans for women entrepreneurs.', tags: ['React', 'Node.js', 'MongoDB', 'TypeScript', 'Clerk'], link: 'https://prioriwise.ai/' },
   { period: 'JAN - MAY 2024', role: 'Software Engineering Intern', company: 'System Technology Works', description: 'Programmed an AI-powered humanoid robot on Jetson Nano, integrating speech, movement, and interactive behavior for a production featured in Marvel’s Ironheart.', tags: ['Python', 'AI', 'Jetson Nano', 'Robotics'], link: 'https://www.systemtechnologyworks.com/' },
   { period: 'MAR - DEC 2023', role: 'Website Design & Marketing Intern', company: 'The Entrepreneurial Hour', description: 'Led web design and digital promotion for a volunteer organization connecting business mentors with entrepreneurs at no cost.', tags: ['Web Design', 'Digital Strategy', 'Marketing'], link: 'https://theentrepreneurialhour.com/' },
@@ -54,7 +54,6 @@ export default function Home() {
             <p className="hero-description">I’m Jyotil Agrawal, a Computer Engineering student at Georgia Tech building at the intersection of software, robotics, research, and entrepreneurship.</p>
             <div className="hero-actions">
               <a href="#projects" className="button button-primary">Explore my work <ArrowIcon /></a>
-              <a href="/Resume_Print.pdf" target="_blank" className="button button-ghost">View résumé</a>
             </div>
           </div>
         </section>
