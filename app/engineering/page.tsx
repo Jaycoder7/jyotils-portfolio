@@ -51,7 +51,7 @@ export default function Home() {
             <div className="status-pill"><span /> Available for ambitious builds</div>
             <p className="hero-kicker">Developer · Researcher · Builder</p>
             <h1>Build software,<span className="gradient-text"> mess with hardware.</span></h1>
-            <p className="hero-description">I’m Jyotil Agrawal, a Computer Engineering student at Georgia Tech building at the intersection of software, robotics, research, and entrepreneurship.</p>
+            <p className="hero-description">I’m Jyotil Agrawal, a Computer Engineering student at Georgia Tech. I like finding things to build, from a campus exploration game to a system that follows the sun. This is where I keep track of what I’ve worked on and what each project taught me.</p>
             <div className="hero-actions">
               <a href="#projects" className="button button-primary">Explore my work <ArrowIcon /></a>
             </div>
@@ -65,7 +65,19 @@ export default function Home() {
         </div></div>
 
         <section className="content-section" id="projects">
+          <article className="portfolio-narrative" id="about">
+            <h2>About me</h2>
+            <p>I couldn’t pick one project that explains why I study computer engineering. I keep finding things I want to build, and each one gives me a different reason to keep going. The electric go-kart started with a broken gas kart. Our team had to figure out how to fit an electric motor, bring the kart to a stop, and sense what was behind it. Those are three very different problems to encounter on the same build.</p>
+            <p>The solar tracker gave me a different question to work on. Moving a panel toward the sun takes power. To know whether tracking helped, I had to count what the system used as well as what the panel produced. The result I care about is the change from 7% to 11% efficiency after accounting for that cost.</p>
+            <p>Software gives me another way to explore. With BullDawg Boundaries, the starting point was a place people already knew: the University of Georgia campus. A daily 360° challenge asks players to look again and work out where they are. I like having both kinds of projects in my portfolio. Sometimes the interesting part is getting hardware to move. Sometimes it’s finding a reason for someone to open an app tomorrow.</p>
+          </article>
+          <article className="portfolio-narrative" id="goals">
+            <h2>Career goals</h2>
+            <p>Sustainability, robotics, and healthcare are the three fields I care about most. The solar tracker gives me a starting point in sustainability. I want to get better at measuring a design’s energy use under different conditions and explaining when the extra hardware earns its place.</p>
+            <p>In robotics, I’d like to build on my experience programming a humanoid robot on a Jetson Nano. A next step at Georgia Tech would be to take responsibility for a sensing or control subsystem on a team project and test it alongside the rest of the machine. Healthcare is a direction I’m still exploring. I’d like to learn from people who use medical devices in their daily work before deciding what I could contribute.</p>
+          </article>
           <SectionHeading index="01" title="Selected work" copy="A few things I’ve designed, engineered, and learned from." />
+          <article className="portfolio-narrative"><h3>Georgia Tech Discovery Project</h3><p>In progress</p></article>
           <div className="project-grid">{projects.map((project) => (
             <a key={project.title} href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" className={`project-card accent-${project.accent}`}>
               <div className="project-topline"><span>{project.number}</span><ArrowIcon /></div>

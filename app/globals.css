@@ -411,3 +411,6 @@ footer a { color: var(--ink); font-weight: 800; }
   .constellation-item { transition: none; }
   .constellation-core, .constellation-instruction { animation: none; }
 }
+.portfolio-narrative { max-width: 72ch; margin: 0 0 4rem; }
+.portfolio-narrative h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.045em; }
+.portfolio-narrative p { margin-top: 1rem; line-height: 1.7; color: var(--muted); }
