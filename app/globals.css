@@ -432,7 +432,7 @@ footer a { color: var(--ink); font-weight: 800; }
 .engineering-projects p { margin-block: 12px; line-height: 1.6; }
 .engineering-projects small { display: block; color: var(--muted); }
 .engineering-projects a { display: inline-block; margin-top: 14px; text-decoration: underline; text-underline-offset: 4px; }
-.profile-reading { border-block: 1px solid var(--line); }
+.profile-reading { border-block-end: 1px solid var(--line); }
 .profile-reading article { margin-inline: auto; }
 .profile-reading article:last-child { margin-bottom: 0; }
 
