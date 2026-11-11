@@ -414,3 +414,84 @@ footer a { color: var(--ink); font-weight: 800; }
 .portfolio-narrative { max-width: 72ch; margin: 0 0 4rem; }
 .portfolio-narrative h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.045em; }
 .portfolio-narrative p { margin-top: 1rem; line-height: 1.7; color: var(--muted); }
+
+.portfolio-shell { background: var(--bg); }
+.portfolio-shell .hero { min-height: auto; padding-block: clamp(115px, 12vw, 165px) 55px; }
+.portfolio-shell .hero-copy { text-align: left; }
+.portfolio-shell .hero h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(44px, 6.8vw, 88px); line-height: 1.04; letter-spacing: -.045em; margin-inline: 0; }
+.engineering-emphasis { display: block; font-style: italic; }
+.portfolio-shell .hero-description { margin-inline: 0; font-size: 17px; }
+.portfolio-shell .hero-actions { justify-content: flex-start; }
+.portfolio-shell .content-section { padding-block: clamp(36px, 5vw, 72px); }
+.engineering-heading { margin: 0 0 24px; font: normal clamp(32px, 4vw, 48px)/1.15 Georgia, serif; }
+#projects > .portfolio-narrative { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-bottom: 20px; }
+#projects > .portfolio-narrative p { margin: 0; font-size: 13px; }
+.engineering-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 255px), 1fr)); gap: 32px; }
+.engineering-projects article { border-top: 2px solid var(--accent); padding-top: 18px; }
+.engineering-projects h3 { font-size: 22px; letter-spacing: -.035em; }
+.engineering-projects p { margin-block: 12px; line-height: 1.6; }
+.engineering-projects small { display: block; color: var(--muted); }
+.engineering-projects a { display: inline-block; margin-top: 14px; text-decoration: underline; text-underline-offset: 4px; }
+.profile-reading { border-block: 1px solid var(--line); }
+.profile-reading article { margin-inline: auto; }
+.profile-reading article:last-child { margin-bottom: 0; }
+
+.engineer-profile { background: #163e34; color: #fffaf0; padding: 12px; border-radius: 4px; }
+.profile-print { position: relative; display: block; aspect-ratio: 1.85; background: linear-gradient(transparent 52%, #10251dcc), url('/photography/campus-crossing.jpg') center 45% / cover; }
+.profile-print span { position: absolute; bottom: 12px; left: 14px; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
+.profile-signature { padding: 20px 10px; display: grid; gap: 4px; }
+.profile-signature strong { font: 500 clamp(28px, 3vw, 42px)/1.05 Georgia, serif; letter-spacing: -.045em; }
+.profile-signature span, .profile-links { font-size: 13px; }
+.profile-links { display: flex; justify-content: space-between; gap: 12px; margin: 0 10px; padding: 15px 0 5px; border-top: 1px solid #ffffff58; }
+.profile-links a:hover { text-decoration: underline; }
+.project-notes { grid-column: 1 / -1; max-width: 72ch; }
+.project-notes summary { cursor: pointer; padding: 10px 0; font-weight: 600; }
+.project-notes h4 { margin: 18px 0 4px; font-weight: 700; }
+.discovery-feature { max-width: 740px; padding-block: 52px 90px; }
+.discovery-feature header { margin-block: 50px 30px; }
+.discovery-feature h1 { font: 500 clamp(42px,7vw,80px)/1 Georgia,serif; letter-spacing: -.05em; margin-block: 16px; }
+.discovery-feature section { margin-top: 36px; }
+.discovery-feature h2 { font: 400 30px Georgia,serif; }
+.discovery-feature p { margin-top: 12px; line-height: 1.7; }
+.discovery-feature figure { padding: 24px; background: #163e34; color: #fffaf0; }
+.discovery-feature ol { padding: 0; display: flex; flex-wrap: wrap; gap: 12px; list-style: none; margin-top: 14px; }
+.discovery-feature li + li::before { content: '→ '; }
+.tracking-study { grid-column: 1 / -1; margin: 12px 0 0; padding: clamp(20px,4vw,42px); color: #eff7ee; background: radial-gradient(ellipse at 70% 40%, #265447, #102c26 75%); border-radius: 5px; }
+.tracking-study figcaption { font: 500 15px Georgia,serif; }
+.tracking-study svg { display: block; width: 100%; max-height: 260px; }
+.tracking-study label { display: block; max-width: 420px; margin: auto; font: 12px monospace; }
+.tracking-study output { float: right; }
+.tracking-study input { display: block; width: 100%; height: 28px; accent-color: #e8c77e; cursor: pointer; }
+.portfolio-shell #projects .engineering-projects { display: block; }
+.portfolio-shell #projects .engineering-projects article { background: transparent; border-inline-start: 0; display: grid; grid-template-columns: 1fr 1.25fr; align-items: baseline; gap: 10px 5vw; padding: 26px 0; }
+.engineering-projects article > p { margin: 0; }
+.engineering-projects article > h3 { font: 500 clamp(25px,3vw,42px)/1.1 Georgia, serif; }
+.engineering-projects article > small { grid-column: 2; }
+.engineering-projects article > a { grid-column: 2; justify-self: start; }
+@media (max-width: 620px) {
+  .portfolio-shell #projects .engineering-projects article { grid-template-columns: 1fr; }
+  .engineering-projects article > :is(small,a) { grid-column: 1; }
+}
+
+/* Engineering project study */
+.portfolio-shell .hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(32px, 5vw, 80px); padding-bottom: 64px; }
+.portfolio-shell .hero-kicker { margin-top: 0; }
+.portfolio-shell .hero h1 { font-size: clamp(52px, 6vw, 86px); }
+.portfolio-shell .hero-description { max-width: 54ch; }
+.solar-study { margin: 0; padding: clamp(18px, 2vw, 30px); overflow: hidden; position: relative; isolation: isolate; background-color: #163d34; color: #f4efe1; background-image: linear-gradient(#ffffff0c 1px, transparent 1px),linear-gradient(90deg,#ffffff0c 1px,transparent 1px); background-size: 23px 23px; }
+.solar-study figcaption { font: 12px var(--font-geist-mono), monospace; }
+.panel-drawing { position: relative; height: clamp(158px, 16vw, 225px); display: grid; place-items: center; }
+.panel-drawing i { position: relative; width: 61%; height: 49%; border: 2px solid #d4e9cd; background-color: #31695d; background-image: linear-gradient(#adcbbc 1px,transparent 1px),linear-gradient(90deg,#adcbbc 1px, transparent 1px); background-size: 100% 25%, 12.5% 100%; transform: skewY(-12deg) rotate(-8deg); box-shadow: 4px 5px 0 #8fa79a; }
+.panel-drawing::after { content: ''; position: absolute; z-index: -1; width: 4px; height: 34%; bottom: 9%; left: 50%; background: #a5bbac; }
+.solar-reading { border-top: 1px solid #779687; padding-top: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.solar-reading strong { font: normal clamp(28px, 3.4vw, 48px)/1 Georgia, serif; }
+.solar-reading span { font-size: 12px; line-height: 1.45; }
+.engineering-projects { gap: 0; border-bottom: 1px solid var(--line); }
+.engineering-projects article { padding: 22px clamp(16px, 2.2vw, 32px) 26px; border-top: 1px solid var(--ink); border-inline-start: 1px solid var(--line); }
+.engineering-projects article:first-child { background: var(--card); }
+@media (max-width: 760px) {
+  .portfolio-shell .hero { grid-template-columns: 1fr; gap: 30px; padding-block: 108px 36px; }
+  .portfolio-shell .hero h1 { font-size: clamp(43px, 9vw, 66px); }
+  .panel-drawing { height: 150px; }
+  .panel-drawing i { max-width: 210px; }
+}

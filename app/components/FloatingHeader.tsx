@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
-const links = [['Work', '#projects'], ['Experience', '#experience'], ['Research', '#research'], ['Contact', '#contact']];
+const links = [['Work', '#projects'], ['About', '#about'], ['Experience', '#experience'], ['Research', '#research'], ['Contact', '#contact']];
 
 export function FloatingHeader() {
   const { theme, toggleTheme } = useTheme();
@@ -26,7 +26,6 @@ export function FloatingHeader() {
       </nav>
       <div className="header-actions">
         <button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}><span className="theme-icon" aria-hidden="true">{theme === 'light' ? '◐' : '☀'}</span></button>
-        <a href="mailto:jyotil.yatin2006@gmail.com" className="header-cta">Let’s talk <span>↗</span></a>
         <button className="menu-toggle" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation"><span /><span /></button>
       </div>
     </header>

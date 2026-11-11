@@ -1,6 +1,7 @@
 'use client';
 
 import { FloatingHeader } from '../components/FloatingHeader';
+import { SolarStudy } from './SolarStudy';
 
 type LinkIconProps = { className?: string };
 
@@ -24,10 +25,28 @@ const experiences = [
 ];
 
 const projects = [
-  { number: '01', title: 'BullDawg Boundaries', eyebrow: 'Campus exploration, reimagined', description: 'A gamified UGA campus explorer with daily 360° challenges, interactive mapping, leaderboards, and AI-powered location stories.', tags: ['React', 'Three.js', 'Supabase', 'Gemini AI'], href: 'https://github.com/Jaycoder7/uga-campus-explorer', accent: 'cyan' },
-  { number: '02', title: 'Sun Tracking System', eyebrow: 'Hardware that follows the light', description: 'An automated FRC-based solar tracking system that improved measured panel efficiency from 7% to 11% after system power costs.', tags: ['C++', 'FRC', 'Power Systems'], href: '#contact', accent: 'ember' },
-  { number: '03', title: 'Electric Go-Kart', eyebrow: 'A mechanical rebuild, electrified', description: 'A team conversion of a broken gas go-kart, including motor integration, electric braking, and rear ultrasonic safety sensing.', tags: ['EV Systems', 'Sensors', 'Team Build'], href: '#contact', accent: 'violet' },
+  { title: 'BullDawg Boundaries', description: 'A gamified UGA campus explorer with daily 360° challenges, interactive mapping, leaderboards, and AI-powered location stories.', tags: ['React', 'Three.js', 'Supabase', 'Gemini AI'], href: 'https://github.com/Jaycoder7/uga-campus-explorer' },
+  { title: 'Sun Tracking System', description: 'An automated FRC-based solar tracking system that improved measured panel efficiency from 7% to 11% after system power costs.', tags: ['C++', 'FRC', 'Power Systems'], href: '#contact' },
+  { title: 'Electric Go-Kart', description: 'A team conversion of a broken gas go-kart, including motor integration, electric braking, and rear ultrasonic safety sensing.', tags: ['EV Systems', 'Sensors', 'Team Build'], href: '#contact' },
 ];
+
+const projectNotes: Record<string, { problem: string; process: string; outcome: string }> = {
+  'BullDawg Boundaries': {
+    problem: 'How well do you know a campus you walk through every day? At UGA, it is easy to recognize a building from the sidewalk and still struggle to place it on a map. BullDawg Boundaries turns that gap into a daily geography challenge.',
+    process: 'The game gives the player two views of the same place. In the 360° scene, you can turn around and look for clues: a path, a neighboring building, the direction a road bends. On the interactive map, you have to turn those observations into a location. The project combines React and Three.js for the web experience with Supabase and Gemini for the broader game and its location stories.',
+    outcome: 'Players can explore a daily scene, make a map guess, and compare scores on a leaderboard. The location stories give someone who guessed wrong a reason to stay with the place for another minute. What interests me about this project is how differently the same patch of campus reads from ground level and from above.',
+  },
+  'Sun Tracking System': {
+    problem: 'A solar panel can collect more light when it faces the sun, but moving it takes energy. The question for this build was whether the extra output would cover the cost of tracking. Measuring the panel alone would leave out part of the answer.',
+    process: 'The system uses C++ and FRC hardware to automate panel positioning. I approached the energy calculation as part of the design: the panel produces power while the tracking equipment consumes it. The angle control on this page illustrates the geometry. You can change the tilt to see how the panel’s orientation follows the light source.',
+    outcome: 'Measured efficiency went from 7% to 11% after accounting for system power costs, a gain of four percentage points. That comparison is why I include both numbers. A moving panel makes a good demonstration, but the energy balance tells me whether the movement paid for itself. A useful follow-up would be to repeat the comparison under different light conditions and track when repositioning costs more than it returns.',
+  },
+  'Electric Go-Kart': {
+    problem: 'Our team started with a broken gas go-kart. Converting it to electric power meant working with the kart we already had: its frame, the space available for a motor, and the driver’s limited view behind the seat. Getting it to move was only one part of the brief.',
+    process: 'We worked on three connected parts of the conversion: integrating the electric motor, adding electric braking, and using a rear-facing ultrasonic sensor to detect nearby obstacles. Each serves a different part of a drive. The motor provides propulsion, the brake gives the driver a way to slow down, and the sensor provides information about an area that is difficult to see. Obstacle sensing and braking are distinct functions in this project.',
+    outcome: 'The team brought propulsion, braking, and rear sensing into the electric conversion. What makes this project different from a software build for me is that the starting hardware stays in the picture throughout: a motor or sensor has to fit somewhere on an actual kart. For a future test report, I would want stopping-distance measurements and a measured rear detection range. Those would say more about the kart than a list of installed parts.',
+  },
+};
 
 const research = [
   { year: '2025 - MAY 2026', title: 'CURO Research Grant', place: 'University of Georgia', description: 'Competitive independent research grant focused on market trends and consumer behavior through data-driven analysis and faculty mentorship.', tags: ['Market Research', 'Data Analysis', 'Consumer Behavior'] },
@@ -36,26 +55,31 @@ const research = [
 
 const marqueeItems = ['FULL-STACK DEVELOPMENT', 'ROBOTICS', 'DATA + RESEARCH', 'PRODUCT THINKING'];
 
-function SectionHeading({ index, title, copy }: { index: string; title: string; copy: string }) {
-  return <div className="section-heading"><span className="section-index">{index}</span><div><h2>{title}</h2><p>{copy}</p></div></div>;
-}
 
 export default function Home() {
   return (
     <div className="portfolio-shell">
-      <div className="noise" aria-hidden="true" />
       <FloatingHeader />
       <main>
         <section className="hero" id="top">
           <div className="hero-copy">
-            <div className="status-pill"><span /> Available for ambitious builds</div>
-            <p className="hero-kicker">Developer · Researcher · Builder</p>
-            <h1>Build software,<span className="gradient-text"> mess with hardware.</span></h1>
+            <p className="hero-kicker">Georgia Tech · Computer Engineering</p>
+            <h1>Build software,<span className="engineering-emphasis"> mess with hardware.</span></h1>
             <p className="hero-description">I’m Jyotil Agrawal, a Computer Engineering student at Georgia Tech. I like finding things to build, from a campus exploration game to a system that follows the sun. This is where I keep track of what I’ve worked on and what each project taught me.</p>
             <div className="hero-actions">
               <a href="#projects" className="button button-primary">Explore my work <ArrowIcon /></a>
             </div>
           </div>
+          <aside className="engineer-profile">
+            <a className="profile-print" href="/photography" aria-label="Explore Jyotil’s photography">
+              <span>Photography archive ↗</span>
+            </a>
+            <div className="profile-signature"><strong>Jyotil Agrawal</strong><span>Computer Engineering · Georgia Tech</span></div>
+            <div className="profile-links">
+              <a href="/Resume_Print.pdf" target="_blank" rel="noreferrer">View résumé ↗</a>
+              <a href="/Resume_Print.pdf" download="Jyotil-Agrawal-Resume.pdf">Download PDF ↓</a>
+            </div>
+          </aside>
         </section>
 
         <div className="marquee" aria-hidden="true"><div className="marquee-track">
@@ -65,6 +89,28 @@ export default function Home() {
         </div></div>
 
         <section className="content-section" id="projects">
+          <h2 className="engineering-heading">Selected work</h2>
+          <article className="portfolio-narrative"><h3><a href="/engineering/discovery">AI gesture-control glove ↗</a></h3><p>ECE 1100 Discovery Project · In progress</p></article>
+          <div className="engineering-projects">
+            {projects.map((project) => (
+              <article key={project.title}>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <small>{project.tags.join(' · ')}</small>
+                <details className="project-notes">
+                  <summary>Read project write-up<span className="sr-only"> for {project.title}</span></summary>
+                  <h4>The problem</h4><p>{projectNotes[project.title].problem}</p>
+                  <h4>The process</h4><p>{projectNotes[project.title].process}</p>
+                  <h4>The outcome</h4><p>{projectNotes[project.title].outcome}</p>
+                </details>
+                {project.title === 'Sun Tracking System' && <SolarStudy />}
+                {project.href.startsWith('https:') && <a href={project.href}>View source on GitHub ↗</a>}
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <div className="content-section profile-reading">
           <article className="portfolio-narrative" id="about">
             <h2>About me</h2>
             <p>I couldn’t pick one project that explains why I study computer engineering. I keep finding things I want to build, and each one gives me a different reason to keep going. The electric go-kart started with a broken gas kart. Our team had to figure out how to fit an electric motor, bring the kart to a stop, and sense what was behind it. Those are three very different problems to encounter on the same build.</p>
@@ -76,20 +122,10 @@ export default function Home() {
             <p>Sustainability, robotics, and healthcare are the three fields I care about most. The solar tracker gives me a starting point in sustainability. I want to get better at measuring a design’s energy use under different conditions and explaining when the extra hardware earns its place.</p>
             <p>In robotics, I’d like to build on my experience programming a humanoid robot on a Jetson Nano. A next step at Georgia Tech would be to take responsibility for a sensing or control subsystem on a team project and test it alongside the rest of the machine. Healthcare is a direction I’m still exploring. I’d like to learn from people who use medical devices in their daily work before deciding what I could contribute.</p>
           </article>
-          <SectionHeading index="01" title="Selected work" copy="A few things I’ve designed, engineered, and learned from." />
-          <article className="portfolio-narrative"><h3>Georgia Tech Discovery Project</h3><p>In progress</p></article>
-          <div className="project-grid">{projects.map((project) => (
-            <a key={project.title} href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" className={`project-card accent-${project.accent}`}>
-              <div className="project-topline"><span>{project.number}</span><ArrowIcon /></div>
-              <div className="project-visual-mark"><span>{project.title.slice(0, 1)}</span></div>
-              <p className="project-eyebrow">{project.eyebrow}</p><h3>{project.title}</h3><p className="project-description">{project.description}</p>
-              <div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-            </a>
-          ))}</div>
-        </section>
+        </div>
 
         <section className="content-section" id="experience">
-          <SectionHeading index="02" title="Experience" copy="Learning by shipping, collaborating, and solving real constraints." />
+          <h2 className="engineering-heading">Experience</h2>
           <div className="experience-list">{experiences.map((item) => {
             const content = <>
               <span className="experience-period">{item.period}</span>
@@ -103,7 +139,7 @@ export default function Home() {
         </section>
 
         <section className="content-section research-section" id="research">
-          <SectionHeading index="03" title="Research mode" copy="Evidence first. Questions always. Assumptions tested." />
+          <h2 className="engineering-heading">Research</h2>
           <div className="research-grid">{research.map((item) => {
             const content = <><span className="research-year">{item.year}</span><p className="research-place">{item.place}</p><h3>{item.title}</h3><p className="research-description">{item.description}</p><div className="tag-row">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{item.href && <span className="research-link">Read the paper <ArrowIcon /></span>}</>;
             return item.href ? <a key={item.title} href={item.href} target="_blank" className="research-card">{content}</a> : <article key={item.title} className="research-card">{content}</article>;
@@ -111,17 +147,15 @@ export default function Home() {
         </section>
 
         <section className="contact-section" id="contact">
-          <p className="contact-kicker">HAVE AN IDEA?</p>
-          <h2>Let’s build something<br /><em>worth talking about.</em></h2>
-          <p>I’m always interested in thoughtful products, unusual engineering challenges, and people with energy.</p>
+          <h2>Get in touch</h2>
           <div className="contact-actions">
-            <a href="mailto:jyotil.yatin2006@gmail.com" className="button button-primary">Start a conversation <ArrowIcon /></a>
+            <a href="mailto:jyotil.yatin2006@gmail.com" className="button button-primary">Email me <ArrowIcon /></a>
             <a href="https://github.com/Jaycoder7" target="_blank" rel="noreferrer" className="social-link"><GithubIcon /> GitHub</a>
             <a href="https://www.linkedin.com/in/jyotil-agrawal" target="_blank" rel="noreferrer" className="social-link">in LinkedIn</a>
           </div>
         </section>
       </main>
-      <footer><a href="#top">Jyotil Agrawal</a><span>Designed with curiosity · Built with Next.js</span><span>© {new Date().getFullYear()}</span></footer>
+      <footer><a href="#top">Jyotil Agrawal</a><span>© {new Date().getFullYear()}</span></footer>
     </div>
   );
 }
