@@ -3,6 +3,9 @@
 import { FloatingHeader } from '../components/FloatingHeader';
 import { SolarStudy } from './SolarStudy';
 import Image from 'next/image';
+import { useState } from 'react';
+
+const contactEmail = 'jyotil.yatin2006@gmail.com';
 
 const buildPhotos: Record<string, [number, string][]> = {
   'Electric Go-Kart': [
@@ -75,6 +78,15 @@ const marqueeItems = ['FULL-STACK DEVELOPMENT', 'ROBOTICS', 'DATA + RESEARCH', '
 
 
 export default function Home() {
+  const [copyStatus, setCopyStatus] = useState('');
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(contactEmail);
+      setCopyStatus('Email address copied.');
+    } catch {
+      setCopyStatus('Select the email address above to copy it manually.');
+    }
+  }
   return (
     <div className="portfolio-shell">
       <FloatingHeader />
@@ -89,8 +101,9 @@ export default function Home() {
             </div>
           </div>
           <aside className="engineer-profile">
-            <a className="profile-print" href="/photography" aria-label="Explore Jyotil’s photography">
-              <span>Photography archive ↗</span>
+            <a className="profile-print" href="https://www.linkedin.com/in/jyotil-agrawal" aria-label="Visit Jyotil Agrawal on LinkedIn">
+              <Image src="/jyotil-headshot.jpeg" alt="Portrait of Jyotil Agrawal" width={400} height={400} priority unoptimized />
+              <span>LinkedIn ↗</span>
             </a>
             <div className="profile-signature"><strong>Jyotil Agrawal</strong><span>Computer Engineering · Georgia Tech</span></div>
             <div className="profile-links">
@@ -181,11 +194,14 @@ export default function Home() {
 
         <section className="contact-section" id="contact">
           <h2>Get in touch</h2>
+          <p><a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
           <div className="contact-actions">
-            <a href="mailto:jyotil.yatin2006@gmail.com" className="button button-primary">Email me <ArrowIcon /></a>
+            <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}`} target="_blank" rel="noreferrer" className="button button-primary">Compose in Gmail <ArrowIcon /></a>
+            <button type="button" className="social-link" onClick={copyEmail}>Copy email</button>
             <a href="https://github.com/Jaycoder7" target="_blank" rel="noreferrer" className="social-link"><GithubIcon /> GitHub</a>
             <a href="https://www.linkedin.com/in/jyotil-agrawal" target="_blank" rel="noreferrer" className="social-link">in LinkedIn</a>
           </div>
+          <span role="status">{copyStatus}</span>
         </section>
       </main>
       <footer><a href="#top">Jyotil Agrawal</a><span>© {new Date().getFullYear()}</span></footer>

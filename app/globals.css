@@ -437,7 +437,9 @@ footer a { color: var(--ink); font-weight: 800; }
 .profile-reading article:last-child { margin-bottom: 0; }
 
 .engineer-profile { background: #163e34; color: #fffaf0; padding: 12px; border-radius: 4px; }
-.profile-print { position: relative; display: block; aspect-ratio: 1.85; background: linear-gradient(transparent 52%, #10251dcc), url('/photography/campus-crossing.jpg') center 45% / cover; }
+.profile-print { position: relative; display: block; }
+.profile-print img { display: block; width: 100%; height: auto; }
+.profile-print span { background: #163e34; color: white; padding: 5px 9px; }
 .profile-print span { position: absolute; bottom: 12px; left: 14px; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
 .profile-signature { padding: 20px 10px; display: grid; gap: 4px; }
 .profile-signature strong { font: 500 clamp(28px, 3vw, 42px)/1.05 Georgia, serif; letter-spacing: -.045em; }
