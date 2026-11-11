@@ -2,6 +2,24 @@
 
 import { FloatingHeader } from '../components/FloatingHeader';
 import { SolarStudy } from './SolarStudy';
+import Image from 'next/image';
+
+const buildPhotos: Record<string, [number, string][]> = {
+  'Electric Go-Kart': [
+    [3, 'Front suspension and steering on the assembled kart.'],
+    [1, 'The project team with the electric kart.'],
+    [7, 'The tubular frame and blue floor pan viewed from above.'],
+    [4, 'Motor controller and battery wiring beside the seat.'],
+    [5, 'The electric motor mounted beside the drive chain.'],
+    [6, 'Pedal and mounting bracket in the footwell.'],
+    [2, 'Rear view with the chassis supported on stands.'],
+  ],
+  'Sun Tracking System': [
+    [9, 'Solar panel tilted between the wooden uprights.'],
+    [8, 'Rear view showing the panel supports, batteries, and wiring.'],
+    [10, 'Panel-mounted camera with its green lights illuminated.'],
+  ],
+};
 
 type LinkIconProps = { className?: string };
 
@@ -102,6 +120,21 @@ export default function Home() {
                   <h4>The problem</h4><p>{projectNotes[project.title].problem}</p>
                   <h4>The process</h4><p>{projectNotes[project.title].process}</p>
                   <h4>The outcome</h4><p>{projectNotes[project.title].outcome}</p>
+                  {buildPhotos[project.title] && (
+                    <div className="build-photos">
+                      {buildPhotos[project.title].map(([id, caption]) => {
+                        const src = `/projects/build-photos/${id}-Photo-${id}.jpg`;
+                        return (
+                          <figure key={id}>
+                            <a href={src} aria-label={`View full-size photo: ${caption}`}>
+                              <Image src={src} alt={caption} fill sizes="(max-width: 600px) 88vw, 320px" quality={95} />
+                            </a>
+                            <figcaption>{caption}</figcaption>
+                          </figure>
+                        );
+                      })}
+                    </div>
+                  )}
                 </details>
                 {project.title === 'Sun Tracking System' && <SolarStudy />}
                 {project.href.startsWith('https:') && <a href={project.href}>View source on GitHub ↗</a>}

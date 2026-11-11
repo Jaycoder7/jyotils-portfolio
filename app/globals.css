@@ -446,6 +446,10 @@ footer a { color: var(--ink); font-weight: 800; }
 .profile-links a:hover { text-decoration: underline; }
 .project-notes { grid-column: 1 / -1; max-width: 72ch; }
 .project-notes summary { cursor: pointer; padding: 10px 0; font-weight: 600; }
+.build-photos { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%, 220px),1fr)); gap: 18px; margin-block: 20px; }
+.engineering-projects .build-photos a { position: relative; display: block; aspect-ratio: 4/3; margin: 0; background: var(--card); cursor: zoom-in; }
+.build-photos img { object-fit: contain; }
+.build-photos figcaption { margin-top: 6px; color: var(--muted); font-size: 13px; }
 .project-notes h4 { margin: 18px 0 4px; font-weight: 700; }
 .discovery-feature { max-width: 740px; padding-block: 52px 90px; }
 .discovery-feature header { margin-block: 50px 30px; }
