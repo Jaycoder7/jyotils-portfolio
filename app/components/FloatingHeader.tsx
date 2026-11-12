@@ -22,7 +22,6 @@ export function FloatingHeader() {
       <a href="#top" className="brand" aria-label="Jyotil Agrawal, home"><span>J</span> Jyotil Agrawal</a>
       <nav className={`header-nav ${open ? 'is-open' : ''}`} aria-label="Main navigation">
         {links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}
-        <a href="/blog" onClick={() => setOpen(false)}>Blog</a>
       </nav>
       <div className="header-actions">
         <button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}><span className="theme-icon" aria-hidden="true">{theme === 'light' ? '◐' : '☀'}</span></button>
